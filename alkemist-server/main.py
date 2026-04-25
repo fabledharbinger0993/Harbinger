@@ -13,7 +13,9 @@ Architecture:
 import os
 os.environ["LANGSMITH_OTEL_ENABLED"] = "true"
 os.environ["LANGSMITH_TRACING"] = "true"
-os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"] = "http://localhost:4319"
+os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"] = os.getenv(
+    "OTEL_EXPORTER_OTLP_ENDPOINT", "http://localhost:4319"
+)
 ### Set up for OpenTelemetry tracing ###
 
 import asyncio
